@@ -1,5 +1,6 @@
-import { Component, computed, inject, signal } from "@angular/core";
+import { Component, computed, inject, signal, viewChild } from "@angular/core";
 import { UserService } from "./user.service";
+import { UserDemoComponent } from "./user-demo/user-demo.component";
 
 interface Transaction {
   id: string;
@@ -11,17 +12,26 @@ interface Transaction {
 @Component({
   selector: 'user-profile',
   templateUrl: './user-profile.component.html',
+  imports: [UserDemoComponent],
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent {
 
   private userService = inject(UserService);
 
+
+  childContents = viewChild(UserDemoComponent);
+
   firstName = signal('John');
   lastName = signal('Smith');
   transactionError = signal('');
   balance = signal(100);
+  sendDataTypeSignal = signal('email');
   transactions = signal<Transaction[]>([]);
+
+  userDemoEmitAlert = (event:{message:string,counter:number})=>{
+    console.log('::USER DEMO EMII FOUND::',event);
+  }
 
   getFullName = computed(() => `${this.firstName()} ${this.lastName()}`);
 

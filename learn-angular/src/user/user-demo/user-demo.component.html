@@ -1,0 +1,9 @@
+<div>user demo section</div>
+<div>cash balance : {{cashBalance()}}</div>
+<div>
+     <div>change send data type</div>
+    <button (click)="updateSendDataType('email')">Email</button>
+    <button (click)="updateSendDataType('sms')">SMS</button>    
+    <button (click)="updateSendDataType('phone')">Phone</button>
+</div>
+<div>send data by : {{sendDataType()}}</div>
