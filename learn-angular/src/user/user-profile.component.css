@@ -1,0 +1,48 @@
+#heading{
+    color : black;
+    font-size: 20px;
+    text-align: center;
+}
+
+#name{
+    color : gray;
+    font-size: 20px;
+}
+
+#balance{
+    color : black;
+    font-size: 24px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#button-bar{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#balance-warning{
+    color : red;
+    font-size: 15px;
+    text-align: center;
+    align-self: center;
+}
+.flex-start{
+    display: flex;
+    justify-content: flex-start;
+}
+.mt-20{
+    margin-top: 20px;
+}
+
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,11 @@
+<div id="heading">hello <span id="name">{{getFullName()}}</span></div>
+<div class="flex-center mt-20">
+    <div id="balance">$ {{balance()}}</div>
+@if(balance()<50){
+    <div id="balance-warning">Balance is low</div>
+}
+</div>
+<div id="button-bar">
+    <button (click)="increaseBalance(10)">Increase Balance</button>
+    <button (click)="decreaseBalance(10)" [disabled]="balance()==0">Decrease Balance</button>
+</div>
