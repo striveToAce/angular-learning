@@ -46,3 +46,20 @@
     display: flex;
     justify-content: center;
 }
+
+.deposit{
+    color: green;
+}
+
+.withdrawal{
+    color: red;
+}
+
+.transaction-type{
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.transaction-amount{
+    font-weight: bold;
+}
