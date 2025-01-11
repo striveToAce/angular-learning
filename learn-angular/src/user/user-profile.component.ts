@@ -19,6 +19,7 @@ export class UserProfileComponent {
 
   firstName = signal('John');
   lastName = signal('Smith');
+  transactionError = signal('');
   balance = signal(100);
   transactions = signal<Transaction[]>([]);
 
@@ -29,6 +30,22 @@ export class UserProfileComponent {
   }
   updateLastName(newLastName: string) {
     this.lastName.set(newLastName);
+  }
+  performTransaction(amount:number,type:'deposit'|'withdrawal'){
+    const approval = this.userService.transactionApproval(amount,this.balance());
+    if(approval.isApproved){
+      if(type === 'deposit'){
+        this.increaseBalance(amount);
+      }else{
+        this.decreaseBalance(amount);
+      }
+    }
+    else{
+      this.transactionError.set(approval.message);
+      setTimeout(() => {
+        this.transactionError.set('');
+      }, 2000);
+    }
   }
 
   increaseBalance(amount: number) {

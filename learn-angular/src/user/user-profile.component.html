@@ -6,10 +6,12 @@
 }
 </div>
 <div id="button-bar">
-    <button (click)="increaseBalance(10)">Increase Balance</button>
-    <button (click)="decreaseBalance(10)" [disabled]="balance()==0">Decrease Balance</button>
+    <button (click)="performTransaction(10,'deposit')">Increase Balance</button>
+    <button (click)="performTransaction(10,'withdrawal')" [disabled]="balance()==0 || transactionError()!=''">Decrease Balance</button>
 </div>
-
+@if(transactionError()!=''){
+    <div id="transaction-error">{{transactionError()}}</div>
+}
 <div class="mt-20">
     <h2>Transactions</h2>
     <ul>

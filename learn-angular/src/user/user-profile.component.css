@@ -63,3 +63,10 @@
 .transaction-amount{
     font-weight: bold;
 }
+
+#transaction-error{
+    color: red;
+    font-size: 15px;
+    text-align: center;
+    align-self: center;
+}
