@@ -1,0 +1,10 @@
+<div>money transfer section</div>
+<div>
+    <div>transfer money</div>
+    <input  type="number" (change)="inputOnChange($event)">
+    @for (user of users; track user.userId) {
+        <div (click)="selectUser(user.userId)">{{user.userName}}</div>
+    }
+    
+    <button (click)="transferMoney()">Transfer</button>
+</div>
